@@ -10,7 +10,7 @@ def test() {
 def deliver() {
   dir(path: env.BUILD_ID) {
     unstash(name: 'compiled-results')
-    sh "docker run --rm -v $(pwd)/sources:/src cdrx/pyinstaller-linux:python2 'pyinstaller -F add2vals.py'"
+    sh "docker run --rm -v ${pwd}/sources:/src cdrx/pyinstaller-linux:python2 'pyinstaller -F add2vals.py'"
   }
 
   archiveArtifacts "${env.BUILD_ID}/sources/dist/add2vals"
