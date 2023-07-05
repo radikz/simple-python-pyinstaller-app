@@ -33,7 +33,6 @@ pipeline {
         stage('Manual Approval') {
             steps {
                 input message: 'Sudah selesai menggunakan React App? (Klik "Proceed" untuk mengakhiri)'
-                sh "delay 1 m"
             }
         }
         stage('Deploy') { 
@@ -52,6 +51,7 @@ pipeline {
                 success {
                     archiveArtifacts "${env.BUILD_ID}/sources/dist/add2vals" 
                     sh "docker run --rm -v ${VOLUME} ${IMAGE} 'rm -rf build dist'"
+                    sh "delay 1 m"
                 }
             }
         }
