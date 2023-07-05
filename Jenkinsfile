@@ -32,7 +32,7 @@ pipeline {
         }
         stage('Manual Approval') {
             steps {
-                input message: 'Sudah selesai menggunakan React App? (Klik "Proceed" untuk mengakhiri)'
+                input message: 'Lanjutkan ke tahap Deploy?'
             }
         }
         stage('Deploy') { 
